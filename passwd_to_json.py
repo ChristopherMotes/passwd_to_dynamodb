@@ -10,4 +10,7 @@ PasswdListofDicts = []
 for line in PasswdObject:
 	PasswdFields = line.strip().split(':')
 	PerLineDict = { "Hostname" : {"S" : HOSTNAME } , "UserName" : { "S" : PasswdFields[0] } , "Password" : { "S" : PasswdFields[1] } , "UserId" : { "S" : PasswdFields[2] } , "GroupId"  : { "S" : PasswdFields[3] } , "HomeDirectory" : { "S" : PasswdFields[5] } , "Shell" : { "S" : PasswdFields[6] } }
-
+	dynamodb_clinet.put_item(
+		TableName = 'user_accounts',
+		Item = PerLineDict
+		) 
