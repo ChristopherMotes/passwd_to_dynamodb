@@ -2,6 +2,8 @@
 import os
 import json
 import boto3
+import time
+import calendar
 boto3.setup_default_session(profile_name='motes-acumera')
 TIME_SINCE_EPOCH = calendar.timegm(time.gmtime())
 TTL = TIME_SINCE_EPOCH * 10 * 60
